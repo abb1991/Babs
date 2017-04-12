@@ -27,6 +27,7 @@
     transition: height .2s ease-out;
 }
 .stream-small {
+  transition: height .2s ease-out;
   height: 0px;
 }
 
@@ -41,14 +42,14 @@
   float: right;
 }
 
-#show-stream-on-button,
-#show-stream-off-button {
+.stream-small-button,
+.stream-big-button {
   background-image: url("transparent.png");
   background:rgba(0,0,0,0.01);
   font-size: 1.5em;
   position: absolute;
   padding: 0%;
-  bottom: 4.7%;
+  bottom: 0%;
   outline: none;
   z-index: 1;
   transition: bottom .2s ease-out;
@@ -59,19 +60,15 @@
   cursor: pointer;
 }
 
-#show-stream-on-button {
-  bottom: 0%;
+.stream-big-button {
+  bottom: 4.7%;
 }
 
 #stream-button:hover {
   color: blue;
 }
 
-#show-stream-on {
-  bottom: 5%;
-}
-
-#show-stream-off {
+.stream-small {
   bottom: 0%;
 }
 

@@ -15,11 +15,14 @@ class Bottle extends React.Component {
    }
 
   render() {
-
     return (
       <li className="bottle-entry">
         <span className="entry-span">{this.props.data.body}</span><br />
-        {this.props.data.can_respond ? <span className="respond-button"><ReplyButton id={this.props.data.id} onShowBox={this.showBox}/></span>: null }
+        {this.props.data.can_respond ?
+          <span className="respond-button">
+            <ReplyButton id={this.props.data.id} onShowBox={this.showBox}/>
+          </span>
+          : null }
         <ul>
           {this.props.replies.map((reply)=>{
             if(reply.entry_id == this.props.data.id){
@@ -27,7 +30,9 @@ class Bottle extends React.Component {
             }
           })}
         </ul>
-        {this.state.box ? <BottleReplyBox data={this.props.data} onAddReply={this.props.onAddReply} /> : null}
+        {this.state.box ?
+          <BottleReplyBox data={this.props.data} onAddReply={this.props.onAddReply} />
+          : null}
       </li>
     )
   }

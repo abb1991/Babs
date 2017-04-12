@@ -6,7 +6,6 @@ class ReplyBox extends React.Component{
   }
 
   handleSubmit(event) {
-
     event.preventDefault();
     let textArea = this.refs.responseTextarea,
         entry_id = this.refs.entryId.value,
@@ -23,7 +22,6 @@ class ReplyBox extends React.Component{
   }
 
   render() {
-
     return (
       <section id="respond-box">
         <form id="respond-box" onSubmit={this.handleSubmit}>
