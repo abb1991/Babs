@@ -53,6 +53,7 @@ class Entry extends React.Component {
   }
 
   render() {
+
     return (
       <li className={this.props.entryType}>
         {this.props.all_prompts.map((prompt, i) => {
@@ -101,6 +102,7 @@ class Entry extends React.Component {
               })}
             </ul>
             : null}
+
         {this.state.box ?
           <ReplyBox data={this.props.data} onAddReply={this.props.onAddReply} />
           : null}

@@ -107,7 +107,7 @@ class App extends React.Component {
                           onRemoveEntry={this.removeEntry}
                           inspo={this.state.inspo}
                           userId={this.state.user.id}
-                          onAddReply={this.onAddReply}
+                          onAddReply={this.addReply}
                           userEntries={this.state.userEntries}
                           onAddEntry={this.addEntry}/>
 

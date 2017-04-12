@@ -14,7 +14,7 @@ class EntriesList extends React.Component {
                   entryType = 'stream'
                 }
                 return <Entry entryType={entryType}
-                              onAddReply={self.props.addReply}
+                              onAddReply={self.props.onAddReply}
                               key={entry.id}
                               data={entry}
                               all_prompts={self.props.all_prompts}
