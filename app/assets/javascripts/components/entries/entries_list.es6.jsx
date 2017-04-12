@@ -19,7 +19,7 @@ class EntriesList extends React.Component {
                               data={entry}
                               all_prompts={self.props.all_prompts}
                               replies={self.props.replies}
-                              onRemoveEntry={self.props.removeEntry}
+                              onRemoveEntry={self.props.onRemoveEntry}
                               onInspo={self.props.onInspo}
                               userId={self.props.userId}/>
                 })}
