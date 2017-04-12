@@ -10,14 +10,13 @@ class ReplyButton extends React.Component{
 
   handleReply(event) {
     event.preventDefault();
-    if (this.state.plusMinus === "+"){
-        this.setState({plusMinus: "−"})
-      } else {
-        this.setState({plusMinus: "+"})
-      }
-      this.props.onShowBox();
-
+    if (this.state.plusMinus === "+") {
+      this.setState({plusMinus: "−"});
+    } else {
+      this.setState({plusMinus: "+"});
     }
+    this.props.onShowBox();
+  }
 
   render() {
     return (

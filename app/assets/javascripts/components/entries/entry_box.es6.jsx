@@ -12,18 +12,16 @@ class EntryBox extends React.Component{
       respondButtonYes: "respond-button-no",
       streamButtonYes: "stream-button-yes"
   }
-
     this.onPrivate = this.onPrivate.bind(this);
     this.onRespond = this.onRespond.bind(this);
     this.onStream = this.onStream.bind(this);
     this.longEnough = this.longEnough.bind(this);
   };
 
-
   onPrivate(event){
     event.preventDefault();
     this.setState({ personal: !this.state.personal})
-    if(this.state.personal){
+    if (this.state.personal) {
       this.setState({bottleButtonYes: "bottle-button-no"})
     } else {
       this.setState({bottleButtonYes: "bottle-button-yes"})
@@ -33,23 +31,23 @@ class EntryBox extends React.Component{
   onRespond(event){
     event.preventDefault();
     this.setState({ respond: !this.state.respond })
-    if(this.state.respond){
+    if (this.state.respond) {
       this.setState({respondButtonYes: "respond-button-yes"})
       this.setState({streamButtonYes: "stream-button-no"})
       this.setState({stream:false})
-    } else{
+    } else {
       this.setState({respondButtonYes: "respond-button-no"})
     }
   }
 
   onStream(event){
     event.preventDefault();
-    if(this.state.stream === false){
+    if (this.state.stream === false) {
       this.setState({stream: true,
-                    streamButtonYes: "stream-button-yes"})
-    } else{
+                     streamButtonYes: "stream-button-yes"})
+    } else {
       this.setState({stream:false,
-                    streamButtonYes: "stream-button-no"})
+                     streamButtonYes: "stream-button-no"})
     }
   }
 
@@ -58,26 +56,24 @@ class EntryBox extends React.Component{
     charCount = this.refs.entryTextarea.value.length
     if(charCount > 80) {
       this.setState({postLongEnough: 'post-long-enough',
-                    textAreaSize: 'post-textarea',
-                    bottleButtonYes: "bottle-button-yes",
-                    respondButtonYes: "respond-button-yes",
-                    streamButtonYes: "stream-button-no",
-                    personal:false,
-                    respond:true,
-                    stream: false
-                    })
+                     textAreaSize: 'post-textarea',
+                     bottleButtonYes: "bottle-button-yes",
+                     respondButtonYes: "respond-button-yes",
+                     streamButtonYes: "stream-button-no",
+                     personal:false,
+                     respond:true,
+                     stream: false })
     } else {
       this.setState({postLongEnough: false,
-                    textAreaSize: 'textarea',
-                    bottleButtonYes: "bottle-button-no",
-                    respondButtonYes: "respond-button-no",
-                    streamButtonYes: "stream-button-yes",
-                    personal: true,
-                    respond:false,
-                    stream: true
-                    })
+                     textAreaSize: 'textarea',
+                     bottleButtonYes: "bottle-button-no",
+                     respondButtonYes: "respond-button-no",
+                     streamButtonYes: "stream-button-yes",
+                     personal: true,
+                     respond:false,
+                     stream: true })
+    }
   }
-}
 
   handleSubmit(event) {
     event.preventDefault();
@@ -101,24 +97,35 @@ class EntryBox extends React.Component{
   }
 
   render() {
-
     return (
       <div>
         <section id="entry-box">
-          <section id="prompt"><h4>{this.props.inspo.question}</h4></section>
+          <div id="prompt"><h4>{this.props.inspo.question}</h4></div>
           <form id="entry-form" onSubmit={this.handleSubmit}>
-              <textarea className={ this.state.textAreaSize } ref="entryTextarea" onKeyUp={this.longEnough} name="body" placeholder="Write something..."/><br/>
-              <div className="post-icons">
-              <a className={this.state.bottleButtonYes} id="bottle-button" onClick={this.onPrivate} href=""></a>
-              <a className={this.state.respondButtonYes} id="respond-button" onClick={this.onRespond}href=""></a>
-              <a className={this.state.streamButtonYes} id="stream-checkbox" onClick={this.onStream} href=""></a>
+            <textarea className={ this.state.textAreaSize }
+                      ref="entryTextarea"
+                      onKeyUp={this.longEnough}
+                      name="body"
+                      placeholder="Write something..."/>
+            <br/>
+            <div className="post-icons">
+              <a className={this.state.bottleButtonYes}
+                 id="bottle-button"
+                 onClick={this.onPrivate}
+                 href=""></a>
+              <a className={this.state.respondButtonYes}
+                 id="respond-button"
+                 onClick={this.onRespond}
+                 href=""></a>
+              <a className={this.state.streamButtonYes}
+                 id="stream-checkbox"
+                 onClick={this.onStream}
+                 href=""></a>
               <input className="entry-post-button" type='submit' value='Post'/><br/>
-               </div>
-
+            </div>
           </form>
         </section>
       </div>
-
     );
   }
 }
