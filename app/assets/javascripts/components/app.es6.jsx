@@ -25,21 +25,6 @@ class App extends React.Component {
     this.onShowBottleClass = this.onShowBottleClass.bind(this);
   }
 
-  removeEntry(entry) {
-    let newEntries = this.state.entries.filter(function(e){return e.id !== entry.id});
-    this.setState({entries: newEntries});
-  }
-
-  onShowBottleClass(){
-    if(this.state.showBottleClass === "bottle-entries-big"){
-      this.setState({showBottleClass: "bottle-entries-small",
-                     userEntries: "user-entries-large"})
-    } else{
-      this.setState({showBottleClass: "bottle-entries-big",
-                     userEntries: "user-entries"})
-    }
-  }
-
   componentDidMount() {
     $.ajax({
       url: '/users/show',
@@ -88,6 +73,21 @@ class App extends React.Component {
     this.setState({replies: replies.concat(reply)});
   }
 
+  removeEntry(entry) {
+    let newEntries = this.state.entries.filter(function(e){return e.id !== entry.id});
+    this.setState({entries: newEntries});
+  }
+
+  onShowBottleClass(){
+    if(this.state.showBottleClass === "bottle-entries-big"){
+      this.setState({showBottleClass: "bottle-entries-small",
+                     userEntries: "user-entries-large"})
+    } else{
+      this.setState({showBottleClass: "bottle-entries-big",
+                     userEntries: "user-entries"})
+    }
+  }
+
   render () {
     return (
       <div>
@@ -107,7 +107,7 @@ class App extends React.Component {
                           onRemoveEntry={this.removeEntry}
                           inspo={this.state.inspo}
                           userId={this.state.user.id}
-                          onAddReply={this.onAddReply}
+                          onAddReply={this.addReply}
                           userEntries={this.state.userEntries}
                           onAddEntry={this.addEntry}/>
 

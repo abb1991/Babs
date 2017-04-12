@@ -9,14 +9,15 @@ class ReplyBox extends React.Component{
     event.preventDefault();
     let textArea = this.refs.responseTextarea,
         entry_id = this.refs.entryId.value,
-        body = textArea.value;
+        body = textArea.value,
+        self = this;
     $.ajax({
       url: '/responses',
       method: 'POST',
       data: { response: { body: body, entry_id: entry_id } }
     })
     .done((response) => {
-      this.props.onAddReply(response);
+      self.props.onAddReply(response);
       textArea.value = '';
     })
   }

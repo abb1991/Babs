@@ -15,13 +15,12 @@ class BottlesList extends React.Component {
           <h2 id="your-bottles">unlocked bottles</h2>
           <ul>
           {this.props.unlockedBottle.body.length > 0 ?
-            <li>
-              <Bottle onAddReply={this.props.onAddReply}
+            <Bottle onAddReply={this.props.onAddReply}
                       key={this.props.unlockedBottle.id}
                       data={this.props.unlockedBottle}
                       replies={this.props.replies}
                       onRemoveEntry={this.props.onRemoveEntry} />
-            </li> : null}
+            : null}
             {this.props.bottles.map((bottle, i) => {
               return <Bottle  onAddReply={self.props.onAddReply}
                               key={i}

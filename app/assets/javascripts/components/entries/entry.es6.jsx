@@ -53,14 +53,15 @@ class Entry extends React.Component {
   }
 
   render() {
+
     return (
       <li className={this.props.entryType}>
-      {this.props.all_prompts.map((prompt, i) => {
-        if (prompt.id === this.props.data.prompt_id) {
-          return this.state.question ?
-            <span className="question" key={i}>{prompt.question}</span>
-            : null}
-      })}
+        {this.props.all_prompts.map((prompt, i) => {
+          if (prompt.id === this.props.data.prompt_id) {
+            return this.state.question ?
+              <span className="question" key={i}>{prompt.question}</span>
+              : null}
+        })}
         <br/>
         <span className="entry-bottle-span">{this.props.data.body}</span>
         <br/>
@@ -101,6 +102,7 @@ class Entry extends React.Component {
               })}
             </ul>
             : null}
+
         {this.state.box ?
           <ReplyBox data={this.props.data} onAddReply={this.props.onAddReply} />
           : null}

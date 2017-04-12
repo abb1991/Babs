@@ -4,7 +4,7 @@ class EntriesContainer extends React.Component {
     return(
       <div className={this.props.userEntries}>
         <div>
-          <EntryBox onAddEntry={this.props.onAddEntry} inspo ={this.props.inspo}/>
+          <EntryBox onAddEntry={this.props.onAddEntry} inspo={this.props.inspo}/>
         </div>
         <h2 className="user-header" >entries</h2>
         <EntriesList entries={this.props.entries}
